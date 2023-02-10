@@ -7,7 +7,7 @@ class ScreenshotCommand(CommandClass):
         super().__init__(command_text)
     def execute(self,chatid):
         path =take_screenshot()
-        tel_send_image(chat_id= chatid,path=path)
+        send_image(chat_id= chatid,path=path)
         
         
         

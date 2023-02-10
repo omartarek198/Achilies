@@ -1,11 +1,7 @@
 
-from flask import Flask
-from flask import request
-from flask import Response
 from automated_gui import *
 import requests
 import os
-from dotenv import load_dotenv
 
 TOKEN = os.getenv('TOKEN')
 
@@ -23,7 +19,7 @@ def parse_message(message):
     return chat_id,txt
 
 
-def tel_send_message(chat_id, text):
+def send_message(chat_id, text):
     url = f'https://api.telegram.org/bot{TOKEN}/sendMessage'
     payload = {
                 'chat_id': chat_id,
@@ -32,7 +28,7 @@ def tel_send_message(chat_id, text):
    
     r = requests.post(url,json=payload)
     return r
-def tel_send_image(chat_id,path):
+def send_image(chat_id,path):
     url = f'https://api.telegram.org/bot{TOKEN}/sendPhoto?chat_id='
     files = {'photo': open(path,'rb')}
     payload = {
