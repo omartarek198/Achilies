@@ -52,6 +52,7 @@ def post():
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    print( "index")
     if request.method == 'POST':
         return post()
        
@@ -62,7 +63,12 @@ def index():
 
 def build_commands():
     obj = ScreenshotCommand("$ss")
-    commands = [obj]
+    obj2 = Launch("$launch")
+    obj3 = GoTo("$goto:whatsapp")
+    commands = []
+    commands.append(obj)
+    commands.append(obj2)
+    commands.append(obj3)
     
     return commands
  
